@@ -1,0 +1,41 @@
+<div class="todo-home-maindiv">
+  <div class="todo-home-subdiv">
+    <mat-toolbar class="todo-toolbar" color="accent">
+      <span>{{todoConstant.LIST}}</span>
+      <span class="example-spacer"></span>
+      <button
+        mat-icon-button
+        class="example-icon favorite-icon"
+        aria-label="Example icon-button with heart icon"
+        (click)="editList()"
+      >
+        <mat-icon>{{todoIcons.editIcon}}</mat-icon>
+      </button>
+      <button
+        mat-icon-button
+        class="example-icon"
+        aria-label="Example icon-button with share icon"
+        (click)="completedList()"
+      >
+        <mat-icon>{{todoIcons.checkIcon}}</mat-icon>
+      </button>
+      <button
+      mat-icon-button
+      class="example-icon"
+      aria-label="Example icon-button with share icon"
+      (click)="deleteList()"
+    >
+      <mat-icon>{{todoIcons.deleteIcon}}</mat-icon>
+    </button>
+    <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with share icon"
+    (click)="OpenPopup()"
+  >
+    <mat-icon>{{todoIcons.addIcon}}</mat-icon>
+  </button>
+    </mat-toolbar>
+    <app-reusable-list-render [listOfItems]="dialogData"  (selectedItems)="selectedItems($event)"></app-reusable-list-render>
+  </div>
+</div>

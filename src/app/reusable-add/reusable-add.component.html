@@ -1,0 +1,47 @@
+<div class="add-body">
+    <div class="add-header">
+        <h2>{{headingData.ADD_LIST}}</h2>
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon"
+            (click)="closeComponentFuction()">
+            <mat-icon>{{todoIcons.closeIcon}}</mat-icon>
+        </button>
+    </div>
+    <div class="headerunderline"></div>
+    &nbsp;&nbsp;
+    <div [formGroup]="formInputdata">
+        <ng-container *ngFor="let item of listofInputs">
+            <ng-container *ngIf="item.type == formTypes.text">
+                <mat-form-field appearance="outline" class="input-field">
+                    <mat-label>{{item.name}}</mat-label>
+                    <input matInput [placeholder]="item.placeholder" style="text-transform: capitalize;" [formControlName]="item.item">
+                    <mat-icon *ngIf="item.suffix" matSuffix>{{todoIcons.smileIcon}}</mat-icon>
+                </mat-form-field>
+            </ng-container>
+
+            <ng-container *ngIf="item.type == formTypes.textArea">
+                <mat-form-field appearance="outline" class="input-field">
+                    <mat-label>{{item.name}}</mat-label>
+                    <textarea matInput rows="1" [placeholder]="item.placeholder "style="text-transform: capitalize;"
+                        [formControlName]="item.item"></textarea>
+                </mat-form-field>
+            </ng-container>
+
+            <ng-container *ngIf="item.type == formTypes.datePicker">
+                <mat-form-field appearance="outline" class="input-field">
+                    <mat-label>{{ item.name }}</mat-label>
+                    <input matInput [matDatepicker]="picker" [placeholder]="item.placeholder"
+                        [formControlName]="item.item" (focus)="picker.open()" readonly />
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </ng-container>
+        </ng-container>
+    </div>
+
+    <div class="button-div">
+        <button mat-raised-button color="warn" class="add-buttom"
+            (click)="closeComponentFuction()">{{headingData.CANCEL}}</button>
+        <button mat-raised-button color="primary" class="add-buttom" [disabled]="this.formInputdata.invalid"
+            (click)="confirmPopup()">{{headingData.CONFIRM}}</button>
+    </div>
+</div>

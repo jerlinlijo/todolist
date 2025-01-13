@@ -1,0 +1,10 @@
+$customBorder:25px;
+
+.custom-todolist{
+    background-color: white;
+    border-bottom-right-radius: $customBorder;
+    border-bottom-left-radius: $customBorder;
+}
+.completed-list{
+    text-decoration: line-through;
+}

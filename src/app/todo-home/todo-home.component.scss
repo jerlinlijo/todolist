@@ -1,0 +1,27 @@
+$headerHeight:64px;
+$paddingTop:24px;
+$customBorder:25px;
+
+
+
+.todo-home-maindiv {
+    height: calc(100% - 64px);
+    width: 100%;
+    background-color: lightgray;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.todo-home-subdiv {
+    padding-top: $paddingTop;
+    width: 90%;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+.todo-toolbar{
+    border-top-right-radius: $customBorder;
+    border-top-left-radius: $customBorder;
+}
